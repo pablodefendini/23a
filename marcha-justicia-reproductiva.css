@@ -1,0 +1,548 @@
+/* ==========================================================================
+   MARCHA POR LA JUSTICIA REPRODUCTIVA
+   Landing Page — 23 de abril, Río Piedras
+   Brand Colors: #288E2D (verde) + #3E074F (púrpura)
+   Fonts: Montserrat (→ Gotham) + Kaushan Script (→ Handelson Two)
+   ========================================================================== */
+
+/* --- Custom Fonts --- */
+@font-face {
+  font-family: 'Gotham';
+  src: url('fonts/gotham-bold.woff2') format('woff2'),
+       url('fonts/Gotham-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Handelson Two';
+  src: url('fonts/handelson-two.woff2') format('woff2'),
+       url('fonts/handelson-two.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Design Tokens --- */
+:root {
+  /* Brand colors */
+  --green: #288E2D;
+  --green-dark: #1e6f22;
+  --green-darker: #145217;
+  --green-light: #3cb842;
+  --purple: #3E074F;
+  --purple-light: #5a1a6e;
+  --purple-dark: #2a0536;
+
+  /* Semantic */
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555;
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+  --text-4xl: 3.5rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Surfaces */
+  --radius: 6px;
+  --radius-lg: 10px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 200ms;
+  --duration-slow: 500ms;
+
+  /* Fonts */
+  --font-sans: 'Gotham', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-script: 'Handelson Two', cursive;
+  --font-body: 'Gotham', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(40, 142, 45, 0.25);
+  color: #000;
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* --- Shared script accent --- */
+.script-accent {
+  font-family: var(--font-script);
+  color: var(--green);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   HERO — Green background, poster lockup
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: auto;
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  background: var(--green);
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 720px;
+  padding: 0 var(--space-6);
+  animation: fade-up 0.7s var(--ease) both;
+}
+
+.hero-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  animation: bounce 2.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   CONTEXT — White background, purple text accents
+   ========================================================================== */
+.context {
+  padding: var(--space-24) 0;
+  background: #fff;
+  position: relative;
+}
+
+.context::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--purple);
+}
+
+.context-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .context-grid {
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
+.context-lead h2 {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--purple);
+  letter-spacing: -0.01em;
+}
+
+.context-lead h2 .script-accent {
+  font-size: 1.5em;
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .context-lead h2 {
+    position: sticky;
+    top: var(--space-8);
+  }
+}
+
+.context-body p {
+  margin-bottom: var(--space-6);
+  color: var(--color-text);
+  max-width: 60ch;
+}
+
+.context-highlight {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--purple);
+  line-height: 1.4;
+}
+
+.context-cta {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: var(--text-2xl);
+  text-transform: uppercase;
+  color: var(--green);
+  letter-spacing: 0.02em;
+  margin-top: var(--space-8);
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   QUÉ ES — Purple background, white text
+   ========================================================================== */
+.que-es {
+  padding: var(--space-24) 0;
+  background: var(--purple);
+  color: #fff;
+}
+
+.que-es .section-title {
+  color: #fff;
+}
+
+.que-es .section-title .script-accent {
+  color: var(--green-light);
+  font-size: 1.5em;
+}
+
+.section-title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--purple);
+  letter-spacing: -0.01em;
+  max-width: 800px;
+  margin-bottom: var(--space-16);
+}
+
+.demands-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .demands-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.demand-group {
+  padding: var(--space-8);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--duration) var(--ease),
+              background var(--duration) var(--ease);
+}
+
+.demand-group:hover {
+  border-color: var(--green);
+  background: rgba(40, 142, 45, 0.08);
+}
+
+.demand-group h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--green-light);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.demand-group ul {
+  list-style: none;
+}
+
+.demand-group li {
+  position: relative;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-3);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.demand-group li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  background: var(--green-light);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   QUIÉNES — Alternating green/purple story bands
+   ========================================================================== */
+.quienes {
+  padding-top: var(--space-24);
+  background: #fff;
+}
+
+.quienes > .container {
+  margin-bottom: var(--space-12);
+}
+
+.quienes .section-title .script-accent {
+  font-size: 1.5em;
+}
+
+.stories {
+  display: flex;
+  flex-direction: column;
+}
+
+.story {
+  padding: var(--space-12) 0;
+  position: relative;
+}
+
+.story--green {
+  background: var(--green);
+  color: #fff;
+}
+
+.story--purple {
+  background: var(--purple);
+  color: #fff;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .story-grid {
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.story-number {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: var(--text-4xl);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: -0.02em;
+}
+
+.story-content h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-4);
+}
+
+.story--green .story-content h3 {
+  color: #fff;
+}
+
+.story--purple .story-content h3 {
+  color: var(--green-light);
+}
+
+.story-content p {
+  max-width: 65ch;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   CTA FINAL — Green background, poster lockup repeat
+   ========================================================================== */
+.cta-final {
+  position: relative;
+  padding: var(--space-32) var(--space-6);
+  text-align: center;
+  background: var(--green);
+  overflow: hidden;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-svg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.cta-divider {
+  width: 60px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: var(--space-8) auto;
+}
+
+.cta-phrase {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  padding: var(--space-6) 0;
+  background: var(--purple-dark);
+  text-align: center;
+}
+
+.site-footer p {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 480px) {
+  .demand-group {
+    padding: var(--space-6);
+  }
+
+  .cta-script {
+    font-size: 3rem;
+  }
+
+  .story-number {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* ==========================================================================
+   PRINT
+   ========================================================================== */
+@media print {
+  body {
+    background: #fff;
+    color: #222;
+  }
+
+  .hero,
+  .cta-final {
+    min-height: auto;
+    padding: 2rem;
+    background: none !important;
+  }
+
+  .scroll-indicator,
+  .story-number {
+    display: none;
+  }
+
+  .story--green,
+  .story--purple {
+    background: none;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .story-content h3 {
+    color: var(--green);
+  }
+
+  .story-content p,
+  .demand-group li {
+    color: #222;
+  }
+}
