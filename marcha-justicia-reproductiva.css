@@ -578,6 +578,25 @@ img { max-width: 100%; display: block; }
   border-color: var(--green);
 }
 
+.medios-card--dark {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.medios-card--dark .medios-card-name,
+.medios-card--dark .medios-card-meta {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.medios-card--dark .medios-card-download {
+  background: #fff;
+  color: var(--green);
+}
+
+.medios-card--dark .medios-card-download:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
 .medios-card-preview {
   border-radius: var(--radius);
   min-height: 80px;
@@ -644,6 +663,45 @@ img { max-width: 100%; display: block; }
 
 .medios-card-download:hover {
   background: var(--green-dark);
+}
+
+.medios-card-preview-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.medios-card-preview-img--placeholder {
+  min-height: 80px;
+  background: #f0f0f0;
+  object-fit: contain;
+}
+
+.medios-card-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.medios-card-canva {
+  display: inline-block;
+  background: var(--purple);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background var(--duration) var(--ease);
+}
+
+.medios-card-canva:hover {
+  background: var(--purple-light);
 }
 
 .footer-link {
@@ -729,5 +787,9 @@ img { max-width: 100%; display: block; }
     background: none;
     color: var(--green);
     border: 1px solid var(--green);
+  }
+
+  .medios-card-canva {
+    display: none;
   }
 }
