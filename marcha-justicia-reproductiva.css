@@ -605,6 +605,14 @@ img { max-width: 100%; display: block; }
   color: rgba(0, 0, 0, 0.3);
 }
 
+.medios-card-preview--tall {
+  min-height: 120px;
+}
+
+.medios-card-preview--short {
+  min-height: 50px;
+}
+
 .medios-card-name {
   font-family: var(--font-sans);
   font-weight: 700;
