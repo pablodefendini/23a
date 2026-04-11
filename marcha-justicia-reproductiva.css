@@ -751,6 +751,51 @@ img { max-width: 100%; display: block; }
   background: var(--purple-light);
 }
 
+/* Carousel rows */
+.carousel-row {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.carousel-row:last-of-type {
+  border-bottom: none;
+}
+
+.carousel-row-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.carousel-row-images {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 200px;
+  text-align: center;
+}
+
+.carousel-item .medios-card-preview-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-2);
+}
+
+.carousel-item .medios-card-download {
+  font-size: var(--text-xs);
+  padding: var(--space-2) var(--space-4);
+}
+
 .footer-link {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
