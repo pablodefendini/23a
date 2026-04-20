@@ -861,6 +861,42 @@ img { max-width: 100%; display: block; }
 }
 
 /* ==========================================================================
+   VIDEO EMBED (rotated 90° from vertical source)
+   ========================================================================== */
+.medios-card--video {
+  margin-top: var(--space-8);
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.medios-card--video .medios-card-name {
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.fb-video-rotated {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+  border-radius: 4px;
+}
+
+.fb-video-rotated iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56.25%;
+  height: 177.78%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center center;
+  border: 0;
+}
+
+/* ==========================================================================
    PRINT
    ========================================================================== */
 @media print {
